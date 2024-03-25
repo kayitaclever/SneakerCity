@@ -18,23 +18,6 @@ class Brand(
         modifiedDate: LocalDateTime?,
         state: Boolean?,
         createdBy: UUID?) : BaseEntity(id, createdDate, modifiedDate, state, createdBy) {
-
-            constructor() : this(id = null, createdDate = null, modifiedDate = null, state = null, createdBy = null) {}
-
-    constructor(
-            id: UUID?,
-            name: String?,
-            slogan: String?,
-            createdDate: LocalDateTime?,
-            modifiedDate: LocalDateTime?,
-            state: Boolean?,
-            createdBy: UUID?
-    ) : this(id = id, createdDate = createdDate, modifiedDate = modifiedDate, state = state, createdBy = createdBy) {
-        this.name = name
-        this.slogan = slogan
-    }
-
-
-
+        constructor() : this(id = null, createdDate = null, modifiedDate = null, state = true, createdBy = null)
 
 }

@@ -11,20 +11,20 @@ import java.util.*
 @Entity
 @Table(name = "shoe_models") // Optional table name specification
 class ShoeModel(
+        @Column(name = "name", nullable = false)
+        var name: String? = null,
+
+        @Column(name = "description")
+        var description: String? = null,
+
+        @ManyToOne
+        @JoinColumn(name = "brand")
+        var brand: Brand? = null,
         id: UUID?,
         createdDate: LocalDateTime?,
         modifiedDate: LocalDateTime?,
         state: Boolean?,
         createdBy: UUID?
 ) : BaseEntity(id, createdDate, modifiedDate, state, createdBy) {
-    @Column(name = "name", nullable = false)
-    var name: String? = null
-
-    // Additional constructors or methods can be added here
-    @Column(name = "description")
-    var description: String? = null
-
-    @ManyToOne
-    @JoinColumn(name = "brand")
-    var brand: Brand? = null
+    constructor() : this(id = null, createdDate = null, modifiedDate = null, state = true, createdBy = null)
 }
